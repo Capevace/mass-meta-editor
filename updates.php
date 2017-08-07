@@ -9,4 +9,4 @@ $ymme_updates = Puc_v4_Factory::buildUpdateChecker(
 );
 
 //Optional: Set the branch that contains the stable release.
-$ymme_updates->setBranch('master');
+// $ymme_updates->setBranch('master');
