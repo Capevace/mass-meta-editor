@@ -8,7 +8,7 @@
 
 <div class="wrap">
   <h1>Yoast Meta Editor</h1>
-  <h4 style="margin: 0;">By Lukas von Mateffy</h4>
+  <h4 style="margin: 0;">By <a href="https://mateffy.me">Lukas von Mateffy</a></h4>
   <p>
     <a href="<?php echo get_site_url().'/wp-json/ymme/v1'; ?>/meta?limit=-1" download="seo-meta.json" class="button button-">Download JSON Data</a>
 
@@ -42,6 +42,4 @@
       </tbody>
     </table>
   </div>
-  <br>
-  <button class="button" id="ymme-update-check">Check for Updates</button>
 </div>
