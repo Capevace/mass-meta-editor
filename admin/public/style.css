@@ -47,3 +47,39 @@
   max-width: 500px;
   margin: 20px auto;
 }
+
+.ymme-preview-link {
+  display: block;
+  font-size: 10px;
+  color: gray;
+}
+
+#ymme-preview-seo-title {
+  display: block;
+  color: #1a0dab;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 21.6px;
+  white-space: nowrap;
+}
+
+#ymme-preview-seo-url {
+  display: block;
+  color: #006621;
+  line-height: 16px;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#ymme-preview-seo-description {
+  color: #545454;
+  line-height: 1.4;
+  word-wrap: break-word;
+  font-size: small;
+  font-family: arial,sans-serif;
+  font-weight: normal;
+}

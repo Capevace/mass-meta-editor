@@ -23,10 +23,6 @@ jQuery(function($) {
     });
     render(data, false, placeholders);
   });
-  // jQuery('#ymme-open-settings').magnificPopup({
-  //   type: 'inline',
-  //   midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-  // });
 
   $('#ymme-refresh').click(function(event) {
     initTable();
@@ -71,12 +67,35 @@ jQuery(function($) {
       .disable(true);
 
     row.append(
-      jQuery('<td></td>').append(
-        jQuery('<a></a>')
-          .text(metaData.title)
-          .attr('href', metaData.url)
-          .attr('target', '_blank')
-      )
+      jQuery('<td></td>')
+        .append(
+          jQuery('<a></a>')
+            .text(metaData.title)
+            .attr('href', metaData.url)
+            .attr('target', '_blank')
+        )
+        .append(
+          jQuery('<a></a>')
+            .addClass('ymme-preview-link')
+            .text('Preview')
+            .attr('href', '#ymme-preview-popup')
+            .magnificPopup({
+              callbacks: {
+                open: function() {
+                  $('#ymme-preview-seo-title').text(
+                    metaData.meta.title ||
+                      (placeholders.title || '')
+                        .replace('%%title%%', metaData.title)
+                  );
+                  $('#ymme-preview-seo-description').text(
+                    metaData.meta.description || placeholders.description
+                  );
+                }
+              },
+              type: 'inline',
+              midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+            })
+        )
     );
     row.append(
       jQuery('<td></td>').append(
