@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Yoast Mass Meta Editor
- * Version: 1.0.1
+ * Version: 1.1.0
  * Plugin URI: https://mateffy.me/mass-meta-editor
  * Description: An easy meta data editor for the Yoast SEO plugin.
  * Author: Lukas von Mateffy
