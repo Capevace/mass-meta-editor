@@ -143,11 +143,21 @@ function ymme_post_meta(WP_REST_Request $request)
       $error_occured = true;
     }
   }
-  
+
   return array(
-    'msg' => ($error_occured) 
+    'msg' => ($error_occured)
       ? 'An error occurred executing the sql queries.'
       : 'Successfully updated meta records.',
     'error' => $error_occured
+  );
+}
+
+function ymme_check_updates() {
+  global $ymme_updates;
+
+  $ymme_updates->checkForUpdates();
+
+  return array(
+    'checked' => true
   );
 }

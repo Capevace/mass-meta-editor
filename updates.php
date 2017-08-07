@@ -1,11 +1,12 @@
 <?php
 
 require_once dirname(WP_YMME).'/vendor/plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+$ymme_updates = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/Capevace/mass-meta-editor/',
 	__FILE__,
-	'mass-meta-editor'
+	'mass-meta-editor',
+  12
 );
 
 //Optional: Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('master');
+$ymme_updates->setBranch('master');

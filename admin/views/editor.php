@@ -11,6 +11,7 @@
   <h4 style="margin: 0;">By Lukas von Mateffy</h4>
   <p>
     <a href="<?php echo get_site_url().'/wp-json/ymme/v1'; ?>/meta?limit=-1" download="seo-meta.json" class="button button-">Download JSON Data</a>
+
     <span class="ymme-search">
       Search: <input type="text" id="ymme-search-field" placeholder="Search here" />
       <button class="button button-secondary" id="ymme-refresh">Refresh</button>
@@ -41,4 +42,6 @@
       </tbody>
     </table>
   </div>
+  <br>
+  <button class="button" id="ymme-update-check">Check for Updates</button>
 </div>

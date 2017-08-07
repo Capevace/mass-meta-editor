@@ -27,6 +27,27 @@
       renderData(data, false, placeholders);
     });
 
+    jQuery('#ymme-update-check').click(function() {
+      jQuery
+        .post({
+          url: YMME_AJAX_ROOT + '/check-plugin-updates'
+        })
+        .done(function() {
+          new Noty({
+            text: 'Successfully checked for updates.',
+            type: 'success',
+            timeout: 4000
+          }).show();
+        })
+        .error(function() {
+          new Noty({
+            text: 'Could not check for updates.',
+            type: 'success',
+            timeout: 4000
+          }).show();
+        });
+    });
+
     jQuery('#ymme-refresh').click(function(event) {
       load();
     });
