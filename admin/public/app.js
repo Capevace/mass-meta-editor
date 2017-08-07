@@ -42,7 +42,7 @@
         .error(function() {
           new Noty({
             text: 'Could not check for updates.',
-            type: 'success',
+            type: 'error',
             timeout: 4000
           }).show();
         });

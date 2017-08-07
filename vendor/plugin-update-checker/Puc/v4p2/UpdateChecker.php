@@ -187,8 +187,10 @@ if ( !class_exists('Puc_v4p2_UpdateChecker', false) ):
 		 */
 		public function checkForUpdates() {
 			$installedVersion = $this->getInstalledVersion();
+
 			//Fail silently if we can't find the plugin/theme or read its header.
 			if ( $installedVersion === null ) {
+        var_dump('Cannot check for plugin');
 				$this->triggerError(
 					sprintf('Skipping update check for %s - installed version unknown.', $this->slug),
 					E_USER_WARNING
@@ -461,7 +463,7 @@ if ( !class_exists('Puc_v4p2_UpdateChecker', false) ):
 			$result = wp_remote_get($url, $options);
 
 			$result = apply_filters($this->getUniqueName('request_metadata_http_result'), $result, $url, $options);
-			
+
 			//Try to parse the response
 			$status = $this->validateApiResponse($result);
 			$metadata = null;

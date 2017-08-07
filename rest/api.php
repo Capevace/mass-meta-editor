@@ -154,7 +154,6 @@ function ymme_post_meta(WP_REST_Request $request)
 
 function ymme_check_updates() {
   global $ymme_updates;
-
   $ymme_updates->checkForUpdates();
 
   return array(
