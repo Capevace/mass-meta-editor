@@ -2,11 +2,13 @@
   var YMME_AJAX_ROOT = '<?php echo get_site_url().'/wp-json/ymme/v1'; ?>'
 </script>
 <script src="<?php echo plugins_url('/admin/public/noty.js', WP_YMME); ?>" charset="utf-8"></script>
+<!-- <script src="<?php echo plugins_url('/admin/public/jquery-popup.js', WP_YMME); ?>" charset="utf-8"></script> -->
 <script src="<?php echo plugins_url('/admin/public/app.js', WP_YMME); ?>" charset="utf-8"></script>
-<link rel="stylesheet" href="<?php echo plugins_url('/admin/public/noty.css', WP_YMME); ?>" />
-<link rel="stylesheet" href="<?php echo plugins_url('/admin/public/style.css', WP_YMME); ?>" />
+<link rel="stylesheet" href="<?php echo plugins_url('/admin/public/style.css', WP_YMME); ?>">
+<link rel="stylesheet" href="<?php echo plugins_url('/admin/public/noty.css', WP_YMME); ?>">
+<!-- <link rel="stylesheet" href="<?php echo plugins_url('/admin/public/jquery-popup.css', WP_YMME); ?>"> -->
 
-<div class="wrap">
+<div class="wrap" id="ymme-editor-wrapper">
   <h1>Yoast Meta Editor</h1>
   <h4 style="margin: 0;">By <a href="https://mateffy.me">Lukas von Mateffy</a></h4>
   <p>
@@ -15,6 +17,7 @@
     <span class="ymme-search">
       Search: <input type="text" id="ymme-search-field" placeholder="Search here" />
       <button class="button button-secondary" id="ymme-refresh">Refresh</button>
+      <!--<a class="button button-secondary" id="ymme-open-settings" href="#ymme-popup">Settings</a>-->
     </span>
   </p>
   <div id="ymme-editor">
@@ -43,3 +46,8 @@
     </table>
   </div>
 </div>
+
+<!-- <div id="ymme-popup" class="ymme-popup mfp-hide">
+  <h2>Editor Settings</h2>
+  <p>Edit your settings in here</p>
+</div> -->

@@ -11,6 +11,8 @@
  * License: MIT
  */
 
+define('WP_DEBUG', false);
+
 if (!defined('WP_YMME')) {
   define('WP_YMME', __FILE__);
 }

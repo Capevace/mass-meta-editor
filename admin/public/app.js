@@ -1,50 +1,49 @@
-(function() {
-  jQuery.fn.extend({
-    disable: function(state) {
-      return this.each(function() {
-        this.disabled = state;
-      });
-    }
-  });
-  jQuery(document).ready(ready);
+jQuery.fn.extend({
+  disable: function(state) {
+    return this.each(function() {
+      this.disabled = state;
+    });
+  }
+});
 
-  var $editor, $editorTable, $editorTableBody, $loader;
+jQuery(function($) {
   var metaData = [];
   var placeholders = {};
 
-  function ready() {
-    $editor = jQuery('#ymme-editor');
-    $loader = $editor.find('#ymme-loader');
-    $editorTable = $editor.find('#editor-table');
-    $editorTableBody = $editorTable.find('tbody');
+  var $editor = jQuery('#ymme-editor');
+  var $loader = $editor.find('#ymme-loader');
+  var $editorTable = $editor.find('#editor-table');
+  var $editorTableBody = $editorTable.find('tbody');
 
-    jQuery('#ymme-search-field').on('input', function(e) {
-      var val = e.target.value.toLowerCase();
-      var data = jQuery.grep(metaData, function(element) {
-        return element.title.toLowerCase().indexOf(val) !== -1 ||
-          element.url.toLowerCase().indexOf(val) !== -1;
-      });
-      renderData(data, false, placeholders);
+  $('#ymme-search-field').on('input', function(e) {
+    var val = e.target.value.toLowerCase();
+    var data = jQuery.grep(metaData, function(element) {
+      return element.title.toLowerCase().indexOf(val) !== -1 ||
+        element.url.toLowerCase().indexOf(val) !== -1;
     });
+    render(data, false, placeholders);
+  });
+  // jQuery('#ymme-open-settings').magnificPopup({
+  //   type: 'inline',
+  //   midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  // });
 
-    jQuery('#ymme-refresh').click(function(event) {
-      load();
+  $('#ymme-refresh').click(function(event) {
+    initTable();
+  });
+  initTable();
+
+  function initTable() {
+    render([], true, {});
+    getMetaElements(null, function(err, result) {
+      metaData = result.data;
+      placeholders = result.placeholders;
+
+      render(metaData, false, placeholders);
     });
-
-    function load() {
-      renderData([], true, {});
-      getMetaElements(null, function(err, result) {
-        metaData = result.data;
-        placeholders = result.placeholders;
-
-        renderData(metaData, false, placeholders);
-      });
-    }
-
-    load();
   }
 
-  function renderData(metaElements, loading, placeholders) {
+  function render(metaElements, loading, placeholders) {
     if (loading) {
       $loader.show();
       $editorTable.hide();
@@ -56,16 +55,12 @@
 
       for (var i = 0; i < metaElements.length; i++) {
         var meta = metaElements[i];
-        $editorTableBody.append(createRow(meta, placeholders));
+        $editorTableBody.append(createMetaTableRow(meta, placeholders));
       }
     }
   }
 
-  function getLoader() {
-    return 'Loading Meta Data...';
-  }
-
-  function createRow(metaData, placeholders) {
+  function createMetaTableRow(metaData, placeholders) {
     var row = jQuery('<tr class="meta-object"></tr>').attr(
       'data-id',
       metaData.post_id
@@ -204,4 +199,4 @@
         saveBtn.removeClass('button-primary');
       });
   }
-})(jQuery);
+});
