@@ -69,7 +69,7 @@ function ymme_get_meta(WP_REST_Request $request) {
   $seo_options = WPSEO_Options::get_option('wpseo_titles');
 
   return array(
-    'data' => array_values($posts),
+    'metadata' => array_values($posts),
     'placeholders' => array(
       'title' => $seo_options['title-page'],
       'description' => $seo_options['metadesc-page']
