@@ -38,6 +38,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 2.0.0 =
+* Switched to Vue.js
+
 = 1.1.0 =
 * Added Google Preview
 
