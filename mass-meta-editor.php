@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Plugin Name: Yoast Mass Meta Editor
- * Version: 2.0.0
+ * Plugin Name: Mass Meta Editor
+ * Version: 2.1.0
  * Plugin URI: https://mateffy.me/mass-meta-editor
- * Description: An easy meta data editor for the Yoast SEO plugin.
+ * Description: An easy meta data editor for the data of the Yoast SEO plugin by Yoast BV.
  * Author: Lukas von Mateffy
  * Author URI: https://mateffy.me
  * Text Domain: mass-meta-editor
- * License: MIT
+ * License: GPLv2 or later
  */
 
 define('WP_DEBUG', false);

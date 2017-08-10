@@ -33,8 +33,7 @@ var ymmeHelpers = {
 Vue.component('ymme-container', {
   template: `
     <div>
-      <h1>Yoast Meta Editor</h1>
-      <h4 style="margin: 0;">By <a href="https://mateffy.me">Lukas von Mateffy</a></h4>
+      <h1>Mass Meta Editor</h1>
       <p>
         <a :href="metaDownloadUrl" download="seo-meta.json" class="button button-">Download JSON Data</a>
 
@@ -45,6 +44,7 @@ Vue.component('ymme-container', {
         </span>
       </p>
       <ymme-editor :metadata="filteredMetadata" :placeholders="placeholders" :loading="loading"></ymme-editor>
+      <p>By <a href="https://mateffy.me">Lukas von Mateffy</a></p>
     </div>
   `,
   data: function() {
@@ -94,7 +94,7 @@ Vue.component('ymme-editor', {
       <div v-else>
         <table class="ymme-table">
           <thead>
-            <tr>
+            <tr style="height: 30px;">
               <td>Page Title</td>
               <td>Meta Title</td>
               <td class="bigger">Description</td>
@@ -118,7 +118,7 @@ Vue.component('ymme-meta-table-row', {
     <tr class="meta-object">
       <td>
         <a :href="metadata.url" target="_blank">{{ metadata.title }}</a>
-        <a href="#" class="ymme-preview-link">Preview</a>
+        <a href="#" @click.prevent="openPopup" class="ymme-preview-link">Preview</a>
       </td>
       <td>
         <textarea v-model="titleValue" :placeholder="titlePlaceholder" :class="classForLongTitle"></textarea>
@@ -186,6 +186,25 @@ Vue.component('ymme-meta-table-row', {
           }
         }
       );
+    },
+    openPopup: function() {
+      var title = this.titleValue || this.titlePlaceholder;
+      var description = this.descriptionValue.substring(0, 156) +
+        (this.descriptionValue.length > 156 ? '...' : '');
+
+      jQuery.magnificPopup.open({
+        items: {
+          src: `
+            <div class="ymme-popup">
+              <span id="ymme-preview-seo-title">${title}</span>
+              <span id="ymme-preview-seo-url">${this.metadata.url}</span>
+              <span id="ymme-preview-seo-description">${description}</span>
+            </div>
+          `,
+          type: 'inline'
+        },
+        type: 'inline'
+      });
     }
   }
 });

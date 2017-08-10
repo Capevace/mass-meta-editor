@@ -5,8 +5,8 @@ add_action('admin_enqueue_scripts', 'ymme_admin_dependencies');
 
 function ymme_admin_menu() {
 	add_management_page(
-    'Yoast Meta Editor',
-    'Yoast Meta Editor',
+    'Mass Meta Editor',
+    'Mass Meta Editor',
     'manage_options',
     'ymme/editor.php',
     'ymme_editor_page',
@@ -24,5 +24,5 @@ function ymme_admin_dependencies($hook) {
     return;
   }
 
-  
+
 }

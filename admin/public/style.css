@@ -1,4 +1,4 @@
-#ymme-editor, .ymme-editor {
+.ymme-editor {
   width: 100%;
   background: white;
   padding: 20px;
@@ -63,7 +63,9 @@
   font-size: 18px;
   font-weight: normal;
   line-height: 21.6px;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 #ymme-preview-seo-url {
@@ -73,6 +75,9 @@
   font-family: arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #ymme-preview-seo-description {
